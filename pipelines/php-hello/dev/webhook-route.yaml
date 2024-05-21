@@ -1,17 +1,69 @@
-kind: Route
-apiVersion: route.openshift.io/v1
+# kind: Route
+# apiVersion: route.openshift.io/v1
+# metadata:
+#   name: build-push-internal-registry-event-listener
+#   namespace: php-hello-dev
+#   labels:
+#     app.kubernetes.io/managed-by: EventListener
+#     app.kubernetes.io/part-of: Triggers
+#     eventlistener: build-push-internal-registry-event-listener
+# spec:
+#   to:
+#     kind: Service
+#     name: el-build-push-internal-registry-event-listener
+#     weight: 100
+#   port:
+#     targetPort: 8080
+#   wildcardPolicy: None
+---
+kind: Service
+apiVersion: v1
 metadata:
-  name: build-push-internal-registry-event-listener
+  name: el-event-listener-build-push-internal-registry-rollout
   namespace: php-hello-dev
   labels:
     app.kubernetes.io/managed-by: EventListener
     app.kubernetes.io/part-of: Triggers
-    eventlistener: build-push-internal-registry-event-listener
+    eventlistener: event-listener-build-push-internal-registry-rollout
 spec:
+  # clusterIP: 172.30.201.237
+  # ipFamilies:
+  #   - IPv4
+  ports:
+    - name: http-listener
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: http-metrics
+      protocol: TCP
+      port: 9000
+  #     targetPort: 9000
+  # internalTrafficPolicy: Cluster
+  # clusterIPs:
+  #   - 172.30.201.237
+  # type: ClusterIP
+  # ipFamilyPolicy: SingleStack
+  # sessionAffinity: None
+  selector:
+    app.kubernetes.io/managed-by: EventListener
+    app.kubernetes.io/part-of: Triggers
+    eventlistener: event-listener-build-push-internal-registry-rollout
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: el-event-listener-build-push-internal-registry-rollout
+  namespace: php-hello-dev
+  labels:
+    app.kubernetes.io/managed-by: EventListener
+    app.kubernetes.io/part-of: Triggers
+    eventlistener: event-listener-build-push-internal-registry-rollout
+spec:
+  # host: el-event-listener-7om4qk-php-hello-dev.apps.rosa-2glvk.ybw6.p1.openshiftapps.com
   to:
     kind: Service
-    name: el-build-push-internal-registry-event-listener
+    name: el-event-listener-build-push-internal-registry-rollout
     weight: 100
   port:
-    targetPort: 8080
+    targetPort: http-listener
   wildcardPolicy: None

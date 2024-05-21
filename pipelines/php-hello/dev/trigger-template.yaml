@@ -1,37 +1,72 @@
+# apiVersion: triggers.tekton.dev/v1alpha1
+# kind: TriggerTemplate
+# metadata:
+#   name: build-push-internal-registry-trigger-template
+#   namespace: php-hello-dev
+# spec:
+#   params:
+#     - name: git-revision
+#     - name: git-repo-url
+#   resourcetemplates:
+#     - apiVersion: tekton.dev/v1beta1
+#       kind: PipelineRun
+#       metadata:
+#         annotations:
+#           pipeline.openshift.io/started-by: admin
+#         generateName: build-push-internal-registry-
+#         labels:
+#           tekton.dev/pipeline: build-push-internal-registry
+#         namespace: php-hello-dev
+#       spec:
+#         params:
+#           - name: GIT_URL
+#             value: $(tt.params.git-repo-url)
+#           - name: GIT_BRANCH
+#             value: $(tt.params.git-revision)
+#           - name: OUTPUT_IMAGE
+#             value: image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello
+#           - name: OUTPUT_TAG
+#             value: demo
+#         pipelineRef:
+#           name: build-push-internal-registry
+#         resources: []
+#         status: null
+#         workspaces:
+#           - name: shared-workspace
+#             persistentVolumeClaim:
+#               claimName: shared-workspace
+---
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: build-push-internal-registry-trigger-template
+  name: trigger-template-build-push-internal-registry-rollout
   namespace: php-hello-dev
 spec:
   params:
     - name: git-revision
+    - name: git-commit-message
     - name: git-repo-url
+    - name: git-repo-name
+    - name: content-type
+    - name: pusher-name
   resourcetemplates:
-    - apiVersion: tekton.dev/v1beta1
+    - apiVersion: tekton.dev/v1
       kind: PipelineRun
       metadata:
         annotations:
-          pipeline.openshift.io/started-by: admin
-        generateName: build-push-internal-registry-
+          argocd.argoproj.io/sync-wave: '2'
+          pipeline.openshift.io/started-by: cluster-admin
+        generateName: build-push-internal-registry-rollout-
         labels:
-          tekton.dev/pipeline: build-push-internal-registry
+          app.kubernetes.io/instance: php-hello-dev-pipelines
+          tekton.dev/pipeline: build-push-internal-registry-rollout
         namespace: php-hello-dev
       spec:
-        params:
-          - name: GIT_URL
-            value: $(tt.params.git-repo-url)
-          - name: GIT_BRANCH
-            value: $(tt.params.git-revision)
-          - name: OUTPUT_IMAGE
-            value: image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello
-          - name: OUTPUT_TAG
-            value: demo
+        params: []
         pipelineRef:
-          name: build-push-internal-registry
-        resources: []
+          name: build-push-internal-registry-rollout
         status: null
         workspaces:
-          - name: shared-workspace
+          - name: shared
             persistentVolumeClaim:
               claimName: shared-workspace
