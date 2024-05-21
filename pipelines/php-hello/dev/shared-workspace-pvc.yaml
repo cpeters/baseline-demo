@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: workspace
+  name: shared-workspace
   namespace: php-hello-dev
 spec:
   accessModes:
