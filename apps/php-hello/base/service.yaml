@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: php-hello
-  namespace: php-hello-dev
 spec:
   ports:
     - name: 8080-tcp
