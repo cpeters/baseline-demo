@@ -24,7 +24,7 @@ spec:
           - name: GIT_BRANCH
             value: $(tt.params.git-revision)
           - name: OUTPUT_IMAGE
-            value: demo-quay-app.registry.svc.cluster.local/admin/meat-helper
+            value: image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello
           - name: OUTPUT_TAG
             value: demo
         pipelineRef:
@@ -32,6 +32,6 @@ spec:
         resources: []
         status: null
         workspaces:
-          - name: php-hello-workspace
+          - name: shared-workspace
             persistentVolumeClaim:
               claimName: shared-workspace
