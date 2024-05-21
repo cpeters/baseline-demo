@@ -1,0 +1,15 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: build-push-internal-registry-event-listener
+  namespace: php-hello-dev
+spec:
+  namespaceSelector: {}
+  resources: {}
+  serviceAccountName: pipeline
+  triggers:
+    - bindings:
+        - kind: TriggerBinding
+          ref: build-push-internal-registry-binding
+      template:
+        ref: build-push-internal-registry-trigger-template

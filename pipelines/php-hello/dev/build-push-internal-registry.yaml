@@ -3,7 +3,7 @@ kind: Pipeline
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
-  name: build-and-push-internal-registry
+  name: build-push-internal-registry
   namespace: php-hello-dev
 spec:
   tasks:

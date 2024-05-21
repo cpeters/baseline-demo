@@ -3,5 +3,8 @@ kind: Kustomization
 
 resources:
 - shared-workspace-pvc.yaml
-- build-and-push-internal-registry.yaml
-
+- build-push-internal-registry.yaml
+- trigger-template.yaml
+- trigger-binding.yaml
+- event-listener.yaml
+- webhook-route.yaml 
