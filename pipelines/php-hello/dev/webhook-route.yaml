@@ -52,7 +52,7 @@ spec:
 kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: el-event-listener-build-push-internal-registry-rollout
+  name: el-build-push-internal-registry-rollout
   namespace: php-hello-dev
   labels:
     app.kubernetes.io/managed-by: EventListener
