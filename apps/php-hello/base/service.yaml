@@ -1,14 +1,8 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: php-hello-dockerfile
-  namespace: php-hello
-  labels:
-    app: php-hello-dockerfile
-    app.kubernetes.io/component: php-hello-dockerfile
-    app.kubernetes.io/instance: php-hello-dockerfile
-    app.kubernetes.io/name: php-hello-dockerfile
-    app.kubernetes.io/part-of: php-hello-dockerfile-app
+  name: php-hello
+  namespace: php-hello-dev
 spec:
   ports:
     - name: 8080-tcp
@@ -16,6 +10,5 @@ spec:
       port: 8080
       targetPort: 8080
   selector:
-    app: php-hello-dockerfile
-    deployment: php-hello-dockerfile
-
+    app: php-hello
+    deployment: php-hello

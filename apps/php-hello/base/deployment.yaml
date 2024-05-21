@@ -2,27 +2,21 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
+  name: php-hello
   namespace: php-hello-dev
-  labels:
-    app: php-hello-dockerfile
-    app.kubernetes.io/component: php-hello-dockerfile
-    app.kubernetes.io/instance: php-hello-dockerfile
-    app.kubernetes.io/name: php-hello-dockerfile
-    app.kubernetes.io/part-of: php-hello-dockerfile-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: php-hello-dockerfile
+      app: php-hello
   template:
     metadata:
       labels:
-        app: php-hello-dockerfile
-        deployment: php-hello-dockerfile
+        app: php-hello
     spec:
       containers:
-        - name: php-hello-dockerfile
-          image: 'image-registry.openshift-image-registry.svc:5000/php-hello/php-hello-dockerfile@sha256:bb9e3c8d3e1f2c55fc6b3fff12df19a8bb275beb6d7e3bcdbca6553be25762ed'
+        - name: php-hello
+          image: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello@sha256:bb9e3c8d3e1f2c55fc6b3fff12df19a8bb275beb6d7e3bcdbca6553be25762ed'
           resources:
             limits:
               cpu: 500m
