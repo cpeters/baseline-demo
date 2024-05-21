@@ -1,0 +1,22 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: php-hello-dockerfile
+  namespace: dev-php-hello
+  labels:
+    app: php-hello-dockerfile
+    app.kubernetes.io/component: php-hello-dockerfile
+    app.kubernetes.io/instance: php-hello-dockerfile
+    app.kubernetes.io/name: php-hello-dockerfile
+    app.kubernetes.io/part-of: php-hello-dockerfile-app
+spec:
+  to:
+    kind: Service
+    name: php-hello-dockerfile
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
