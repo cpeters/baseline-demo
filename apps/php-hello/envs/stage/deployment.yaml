@@ -2,5 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: php-hello
+  namespace: php-hello-stage
 spec:
   replicas: 4
