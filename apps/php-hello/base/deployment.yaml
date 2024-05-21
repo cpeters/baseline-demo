@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: php-hello
-          image: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest
+          image: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           imagePullPolicy: Always
