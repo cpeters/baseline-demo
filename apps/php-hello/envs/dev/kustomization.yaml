@@ -4,3 +4,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - ../../base
+
+patchesStrategiMerge:
+# - version.yaml
+
