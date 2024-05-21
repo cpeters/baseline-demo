@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - php-hello-dev.yaml
 - php-hello-stage.yaml
+
