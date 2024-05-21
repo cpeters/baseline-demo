@@ -3,6 +3,12 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: php-hello
+  labels:
+    app: php-hello
+    app.kubernetes.io/component: php-hello
+    app.kubernetes.io/instance: php-hello
+    app.kubernetes.io/name: php-hello
+    app.kubernetes.io/part-of: php-hello
 spec:
   replicas: 1
   selector:
@@ -12,6 +18,7 @@ spec:
     metadata:
       labels:
         app: php-hello
+        deployment: php-hello
     spec:
       containers:
         - name: php-hello
