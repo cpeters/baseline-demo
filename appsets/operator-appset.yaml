@@ -14,7 +14,7 @@ spec:
       - path: operators/*
   template:
     metadata:
-      name: '{{index .path.segments 0}}-{{index .path.segments 2}}'
+      name: '{{index .path.segments 0}}-{{index .path.segments 1}}'
     spec:
       # The project the application belongs to.
       project: default
