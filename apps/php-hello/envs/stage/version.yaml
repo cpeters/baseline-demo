@@ -1,3 +1,0 @@
-- op: replace
-  path: /spec/containers/image
-  value: 'quay.io/repository/chpeters/baseline-demo:latest'

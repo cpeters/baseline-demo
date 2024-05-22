@@ -4,14 +4,12 @@ kind: Kustomization
 resources:
 - ../../base
 
+images:
+  - name: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
+    newName: 'quay.io/repository/chpeters/baseline-demo'
+    
 patches:
   - path: replicas.yaml
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: php-hello
-  - path: version.yaml
     target:
       group: apps
       version: v1
