@@ -8,7 +8,7 @@ commonAnnotations:
 resources:
   - patch-argocd.yaml
   - namespace.yaml
-  - operator-group.yaml
+  # - operator-group.yaml
   - subscription.yaml
   - ./instance/overlays/internal-registry-integration
 
