@@ -67,6 +67,6 @@ spec:
           name: build-push-internal-registry-rollout
         status: null
         workspaces:
-          - name: shared
+          - name: shared-workspace
             persistentVolumeClaim:
               claimName: shared-workspace
