@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - shared-workspace-pvc.yaml
 - build-push-internal-registry-rollout.yaml
+- push-image-quay.yaml
 - trigger-template.yaml
 # - trigger-binding.yaml
 - event-listener.yaml
