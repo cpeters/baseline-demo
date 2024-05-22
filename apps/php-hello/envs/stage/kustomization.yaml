@@ -6,7 +6,7 @@ resources:
 
 images:
   - name: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
-    newName: 'quay.io/repository/chpeters/baseline-demo'
+    newName: 'quay.io/repository/chpeters/baseline-demo/php-hello'
     
 patches:
   - path: replicas.yaml
