@@ -1,0 +1,29 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: push-image-quay
+  namespace: php-hello-dev
+spec:
+  tasks:
+    - name: skopeo-copy
+      params:
+        - name: srcImageURL
+          value: >-
+            docker://image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest
+        - name: destImageURL
+          value: 'docker://quay.io/chpeters/baseline-demo'
+        - name: srcTLSverify
+          value: 'true'
+        - name: destTLSverify
+          value: 'true'
+      taskRef:
+        kind: ClusterTask
+        name: skopeo-copy
+      workspaces:
+        - name: images-url
+          workspace: shared-workspace
+  workspaces:
+    - name: shared-workspace
+      optional: false
+  params: []
+  finally: []
