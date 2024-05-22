@@ -12,3 +12,10 @@ resources:
   - subscription.yaml
   - ./instance/overlays/internal-registry-integration
 
+patches:
+  - path: patch-resources.yaml
+    target:
+      group: platform.stackrox.io
+      kind: Central
+      name: central
+      version: v1alpha1
