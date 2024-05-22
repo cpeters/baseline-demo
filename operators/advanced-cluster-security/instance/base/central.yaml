@@ -7,6 +7,14 @@ metadata:
   name: central
 spec:
   central:
+    db:
+      resources:
+        limits:
+          cpu: 4
+          memory: 8Gi
+        requests:
+          cpu: 2
+          memory: 4Gi
     exposure:
       loadBalancer:
         enabled: false

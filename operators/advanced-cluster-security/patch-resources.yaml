@@ -6,15 +6,15 @@
     requests:
       cpu: 500m
       memory: 512Mi
-- op: add
-  path: /spec/central/db/resources
-  value:
-    limits:
-      cpu: 4
-      memory: 16Gi
-    requests:
-      cpu: 2
-      memory: 2Gi
+# - op: replace
+#   path: /spec/central/db/resources
+#   value:
+#     limits:
+#       cpu: 4
+#       memory: 8Gi
+#     requests:
+#       cpu: 2
+#       memory: 2Gi
 - op: add
   path: /spec/scanner/analyzer/resources
   value:
