@@ -4,14 +4,17 @@ metadata:
   name: push-image-quay
   namespace: php-hello-dev
 spec:
+  params:
+    - default: latest
+      name: IMAGE_TAG
+      type: string
   tasks:
     - name: skopeo-copy
       params:
         - name: srcImageURL
-          value: >-
-            docker://image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest
+          value: 'docker://image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
         - name: destImageURL
-          value: 'docker://quay.io/chpeters/php-hello/php-hello:latest'
+          value: 'docker://quay.io/chpeters/php-hello:$(params.IMAGE_TAG)'
         - name: srcTLSverify
           value: 'true'
         - name: destTLSverify
@@ -25,5 +28,3 @@ spec:
   workspaces:
     - name: shared-workspace
       optional: false
-  params: []
-  finally: []
