@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - build-push-internal-registry-rollout.yaml
+- build-push-internal-registry-rollout-pr.yaml
 - push-image-quay.yaml
 - trigger-template.yaml
 # # - trigger-binding.yaml
