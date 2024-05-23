@@ -1,0 +1,17 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '4'
+    argocd.argoproj.io/sync-options: { "health": false }
+    argocd.argoproj.io/automated: "false"
+  name: quay-shared-workspace
+  namespace: php-hello-dev
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: gp3-csi
+  volumeMode: Filesystem

@@ -5,8 +5,6 @@ metadata:
   name: acs-image-check
   namespace: php-hello-dev
 spec:
-  workspaces:
-    - name: shared-workspace
   params:
     - name: rox_token_secret_name
       type: string
