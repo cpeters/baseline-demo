@@ -3,18 +3,10 @@ apiVersion: platform.stackrox.io/v1alpha1
 kind: Central
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
   name: central
 spec:
   central:
-    db:
-      resources:
-        limits:
-          cpu: 4
-          memory: 8Gi
-        requests:
-          cpu: 2
-          memory: 4Gi
     exposure:
       loadBalancer:
         enabled: false
