@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: { "health": false }
     argocd.argoproj.io/automated: "false"
-  name: shared-workspace
+  name: pipeline-shared-workspace
   namespace: php-hello-dev
 spec:
   accessModes:
