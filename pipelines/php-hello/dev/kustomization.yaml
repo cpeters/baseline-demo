@@ -11,5 +11,6 @@ resources:
 - event-listener.yaml
 - webhook-route.yaml 
 - shared-workspace-pvc.yaml
+- quay-shared-workspace-pvc.yaml
 - tasks/modified-git-clone.yaml
 - tasks/acs-image-check.yaml
