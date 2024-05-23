@@ -15,15 +15,13 @@ spec:
     - name: content-type
     - name: pusher-name
   resourcetemplates:
-    - apiVersion: tekton.dev/v1
+    - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun
       metadata:
         annotations:
           argocd.argoproj.io/sync-wave: '2'
-          pipeline.openshift.io/started-by: cluster-admin
         generateName: build-push-internal-registry-rollout-
         labels:
-          app.kubernetes.io/instance: php-hello-dev-pipelines
           tekton.dev/pipeline: build-push-internal-registry-rollout
         namespace: php-hello-dev
       spec:
