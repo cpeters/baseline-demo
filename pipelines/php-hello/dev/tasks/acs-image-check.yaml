@@ -47,3 +47,5 @@ spec:
           echo -n "--insecure-skip-tls-verify") \
           -e "$ROX_ENDPOINT" --image "$(params.image)" \
           --output "$(params.output_format)"
+  workspaces:
+    - name: acs
