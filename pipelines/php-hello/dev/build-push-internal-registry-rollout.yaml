@@ -93,4 +93,3 @@ spec:
           value: latest
   workspaces:
     - name: shared-workspace
-      optional: false
