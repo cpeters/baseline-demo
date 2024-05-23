@@ -14,4 +14,3 @@ spec:
       storage: 2Gi
   storageClassName: gp3
   volumeMode: Filesystem
-
