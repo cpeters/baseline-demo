@@ -13,3 +13,4 @@ resources:
 - webhook-route.yaml 
 - shared-workspace-pvc.yaml
 - modified-git-clone.yaml
+- acs-image-check.yaml

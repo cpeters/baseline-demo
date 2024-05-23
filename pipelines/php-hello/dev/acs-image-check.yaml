@@ -1,0 +1,51 @@
+---
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: acs-image-check
+  namespace: php-hello-dev
+spec:
+  workspaces:
+    - name: shared-workspace
+  params:
+    - name: rox_token_secret_name
+      type: string
+      description: Name of secret containing token and endpoint.
+      default: central-creds
+    - name: image
+      type: string
+      description: Full name of image to scan (example -- gcr.io/rox/sample:5.0-rc1)
+    - name: output_format
+      type: string
+      description: Output format (json | csv | pretty)
+      default: json
+    - name: insecure-skip-tls-verify
+      type: string
+      description: When set to `"true"`, skip verifying the TLS certs of the Central endpoint. Defaults to `"true"`.
+      default: "true"
+  steps:
+    - name: rox-image-check
+      image: registry.access.redhat.com/ubi9-minimal:latest
+      env:
+        - name: ROX_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: $(params.rox_token_secret_name)
+              key: token
+        - name: ROX_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              name: $(params.rox_token_secret_name)
+              key: endpoint
+      script: |
+        #!/usr/bin/env bash
+        set +x
+        export NO_COLOR="True"
+        curl https://mirror.openshift.com/pub/rhacs/assets/latest/bin/linux/roxctl \
+          --output ./roxctl  > /dev/null; echo "Getting roxctl"
+        chmod +x ./roxctl > /dev/null
+        ./roxctl image check \
+          $( [ "$(params.insecure-skip-tls-verify)" = "true" ] && \
+          echo -n "--insecure-skip-tls-verify") \
+          -e "$ROX_ENDPOINT" --image "$(params.image)" \
+          --output "$(params.output_format)"
