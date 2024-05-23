@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- shared-workspace-pvc.yaml
 - build-push-internal-registry-rollout.yaml
 # - push-image-quay.yaml
 # - trigger-template.yaml
 # # - trigger-binding.yaml
 # - event-listener.yaml
 # - webhook-route.yaml 
+# - shared-workspace-pvc.yaml
