@@ -11,7 +11,7 @@ spec:
       type: string
       description: Image to scan and push to Quay
       default: 'docker://image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
-    - name: image-tag
+    - name: IMAGE_TAG
       type: string
       description: Tag for pushed image
       default: latest
