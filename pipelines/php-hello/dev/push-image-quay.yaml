@@ -30,7 +30,7 @@ spec:
         kind: Task
         name: acs-image-check
       workspaces:
-        - name: shared-workspace
+        - name: acs
           workspace: shared-workspace
     - name: skopeo-copy
       params:
@@ -48,7 +48,7 @@ spec:
         kind: ClusterTask
         name: skopeo-copy
       workspaces:
-        - name: shared-workspace
+        - name: skopeo
           workspace: shared-workspace
   workspaces:
     - name: shared-workspace
