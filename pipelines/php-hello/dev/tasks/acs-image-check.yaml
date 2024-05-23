@@ -6,7 +6,7 @@ metadata:
   namespace: php-hello-dev
 spec:
   workspaces:
-    - name: pipeline-shared-workspace
+    - name: shared-workspace
   params:
     - name: rox_token_secret_name
       type: string

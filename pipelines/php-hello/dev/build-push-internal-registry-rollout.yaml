@@ -47,7 +47,7 @@ spec:
         name: modified-git-clone
       workspaces:
         - name: output
-          workspace: pipeline-shared-workspace
+          workspace: shared-workspace
     - name: buildah
       params:
         - name: IMAGE
@@ -79,7 +79,7 @@ spec:
         name: buildah
       workspaces:
         - name: source
-          workspace: pipeline-shared-workspace
+          workspace: shared-workspace
     - name: openshift-client
       runAfter:
         - buildah
@@ -92,4 +92,4 @@ spec:
         - name: VERSION
           value: latest
   workspaces:
-    - name: pipeline-shared-workspace
+    - name: shared-workspace

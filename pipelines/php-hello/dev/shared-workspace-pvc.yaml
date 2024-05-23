@@ -5,7 +5,7 @@ metadata:
     argocd.argoproj.io/sync-wave: '4'
     argocd.argoproj.io/sync-options: { "health": false }
     argocd.argoproj.io/automated: "false"
-  name: pipeline-shared-workspace
+  name: shared-workspace
   namespace: php-hello-dev
 spec:
   accessModes:

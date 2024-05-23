@@ -32,4 +32,4 @@ spec:
         workspaces:
           - name: source
             persistentVolumeClaim:
-              claimName: pipeline-shared-workspace
+              claimName: shared-workspace
