@@ -7,7 +7,7 @@ metadata:
   namespace: php-hello-dev
 spec:
   tasks:
-    - name: modified-git-clone
+    - name: git-clone
       params:
         - name: url
           value: 'https://github.com/cpeters/php-hello-dockerfile.git'
