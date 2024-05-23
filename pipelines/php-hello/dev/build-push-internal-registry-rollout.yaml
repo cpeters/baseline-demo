@@ -43,8 +43,8 @@ spec:
         - name: userHome
           value: /home/git
       taskRef:
-        kind: ClusterTask
-        name: git-clone
+        kind: Task
+        name: modified-git-clone
       workspaces:
         - name: output
           workspace: shared-workspace
