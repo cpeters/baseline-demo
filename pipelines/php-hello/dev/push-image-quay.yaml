@@ -29,6 +29,9 @@ spec:
       taskRef:
         kind: Task
         name: acs-image-check
+      workspaces:
+        - name: shared-workspace
+          workspace: shared-workspace
     - name: skopeo-copy
       params:
         - name: srcImageURL
@@ -45,7 +48,7 @@ spec:
         kind: ClusterTask
         name: skopeo-copy
       workspaces:
-        - name: images-url
+        - name: shared-workspace
           workspace: shared-workspace
   workspaces:
     - name: shared-workspace
