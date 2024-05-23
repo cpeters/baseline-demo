@@ -8,4 +8,4 @@ resources:
 # # - trigger-binding.yaml
 - event-listener.yaml
 - webhook-route.yaml 
-# - shared-workspace-pvc.yaml
+- shared-workspace-pvc.yaml
