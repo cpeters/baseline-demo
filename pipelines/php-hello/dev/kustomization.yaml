@@ -5,12 +5,11 @@ namespace: php-hello-dev
 
 resources:
 - build-push-internal-registry-rollout.yaml
-# - build-push-internal-registry-rollout-pr.yaml
 - push-image-quay.yaml
 - trigger-template.yaml
-# # - trigger-binding.yaml
+# - trigger-binding.yaml
 - event-listener.yaml
 - webhook-route.yaml 
 - shared-workspace-pvc.yaml
-- modified-git-clone.yaml
-- acs-image-check.yaml
+- tasks/modified-git-clone.yaml
+- tasks/acs-image-check.yaml

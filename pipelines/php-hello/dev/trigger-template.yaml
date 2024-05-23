@@ -1,5 +1,5 @@
 ---
-apiVersion: triggers.tekton.dev/v1alpha1
+apiVersion: triggers.tekton.dev/v1
 kind: TriggerTemplate
 metadata:
   annotations:
@@ -15,7 +15,7 @@ spec:
     - name: content-type
     - name: pusher-name
   resourcetemplates:
-    - apiVersion: tekton.dev/v1beta1
+    - apiVersion: tekton.dev/v1
       kind: PipelineRun
       metadata:
         annotations:
@@ -30,6 +30,6 @@ spec:
           name: build-push-internal-registry-rollout
         status: null
         workspaces:
-          - name: shared-workspace
+          - name: source
             persistentVolumeClaim:
-              claimName: shared-workspace
+              claimName: pipeline-shared-workspace

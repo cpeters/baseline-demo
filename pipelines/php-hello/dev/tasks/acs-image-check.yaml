@@ -1,12 +1,12 @@
 ---
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   name: acs-image-check
   namespace: php-hello-dev
 spec:
   workspaces:
-    - name: shared-workspace
+    - name: pipeline-shared-workspace
   params:
     - name: rox_token_secret_name
       type: string

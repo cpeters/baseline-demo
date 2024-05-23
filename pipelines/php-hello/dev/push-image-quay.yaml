@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   annotations:
@@ -48,7 +48,7 @@ spec:
         kind: ClusterTask
         name: skopeo-copy
       workspaces:
-        - name: skopeo
+        - name: images-url
           workspace: pipeline-shared-workspace
   workspaces:
     - name: pipeline-shared-workspace
