@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1beta1
+apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   annotations:
@@ -24,6 +24,10 @@ spec:
       params:
         - name: image
           value: $(params.SOURCE_IMAGE)
+        - name: rox_central_endpoint
+          value: $(params.ROX_CENTRAL_ENDPOINT)
+        - name: rox_api_token
+          value: $(params.ROX_API_TOKEN)
         - name: insecure-skip-tls-verify
           value: $(params.TLSVERIFY)
       taskRef:
