@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '4'
-    argocd.argoproj.io/sync-options: { "health": false }
+    argocd.argoproj.io/sync-options: Validate=false
     argocd.argoproj.io/automated: "false"
   name: quay-shared-workspace
   namespace: php-hello-dev
