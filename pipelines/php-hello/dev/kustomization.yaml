@@ -10,6 +10,6 @@ resources:
 - event-listener.yaml
 - webhook-route.yaml 
 - shared-workspace-pvc.yaml
-- quay-shared-workspace-pvc.yaml
+# - quay-shared-workspace-pvc.yaml
 - tasks/
 - jobs/
