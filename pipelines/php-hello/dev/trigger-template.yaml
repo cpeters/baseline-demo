@@ -30,6 +30,6 @@ spec:
           name: build-push-internal-registry-rollout
         status: null
         workspaces:
-          - name: source
+          - name: shared-workspace
             persistentVolumeClaim:
               claimName: shared-workspace
