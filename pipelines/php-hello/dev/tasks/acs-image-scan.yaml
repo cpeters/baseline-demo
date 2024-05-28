@@ -37,10 +37,10 @@ spec:
         endpoint.  Defaults to `"true"`.
       name: insecure-skip-tls-verify
       type: string
-  # stepTemplate:
-  #   env:
-  #     - name: "HOME"
-  #       value: "/tekton/home"
+  stepTemplate:
+    env:
+      - name: "HOME"
+        value: "/tekton/home"
   steps:
     - env:
         - name: ROX_API_TOKEN
@@ -56,7 +56,7 @@ spec:
       image: 'registry.redhat.io/advanced-cluster-security/rhacs-roxctl-rhel8:4.0'
       name: acs-image-scan
       resources: {}
-      # workingDir: /workspace
+      workingDir: /workspace
       script: |
         #!/usr/bin/env bash
         set +x
