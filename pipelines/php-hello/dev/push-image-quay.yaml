@@ -10,7 +10,7 @@ spec:
     - name: SOURCE_IMAGE
       type: string
       description: Image to scan and push to Quay
-      default: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
+      default: 'default-route-openshift-image-registry.apps.cpeters-baseline.sandbox1516.opentlc.com/php-hello-dev/php-hello:latest'
     - name: IMAGE_TAG
       type: string
       description: Tag for pushed image
@@ -34,7 +34,7 @@ spec:
     - name: skopeo-copy
       params:
         - name: srcImageURL
-          value: $(params.SOURCE_IMAGE)
+          value: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
         - name: destImageURL
           value: 'docker://quay.io/chpeters/php-hello:$(params.IMAGE_TAG)'
         - name: srcTLSverify
