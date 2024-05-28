@@ -10,27 +10,27 @@ spec:
     - name: SOURCE_IMAGE
       type: string
       description: Image to scan and push to Quay
-      default: 'docker://image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
+      default: 'docker://default-route-openshift-image-registry.apps.chpeters-baseline.sandbox1516.opentlc.com/php-hello-dev/php-hello:latest'
     - name: IMAGE_TAG
       type: string
       description: Tag for pushed image
       default: latest
   tasks:
-#    - name: acs-image-scan
-#      params:
-#        - name: image
-#          value: $(params.SOURCE_IMAGE)
-#        - name: rox_central_endpoint
-#          value: roxsecrets
-#        - name: rox_api_token
-#          value: roxsecrets
-#        - name: output_format
-#          value: json
-#        - name: insecure-skip-tls-verify
-#          value: 'true'
-#      taskRef:
-#        kind: Task
-#        name: acs-image-scan
+    - name: acs-image-scan
+      params:
+        - name: image
+          value: $(params.SOURCE_IMAGE)
+        - name: rox_central_endpoint
+          value: roxsecrets
+        - name: rox_api_token
+          value: roxsecrets
+        - name: output_format
+          value: json
+        - name: insecure-skip-tls-verify
+          value: 'true'
+      taskRef:
+        kind: Task
+        name: acs-image-scan
     - name: skopeo-copy
       params:
         - name: srcImageURL
@@ -41,8 +41,8 @@ spec:
           value: 'true'
         - name: destTLSverify
           value: 'true'
- #     runAfter:
- #       - acs-image-scan
+      runAfter:
+        - acs-image-scan
       taskRef:
         kind: ClusterTask
         name: skopeo-copy
