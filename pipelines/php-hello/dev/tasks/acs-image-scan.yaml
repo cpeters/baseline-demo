@@ -37,6 +37,9 @@ spec:
         endpoint.  Defaults to `"true"`.
       name: insecure-skip-tls-verify
       type: string
+  workspaces:
+    - name: acs
+      description: Workspace containing the ACS scan results
   steps:
     - env:
         - name: ROX_API_TOKEN
