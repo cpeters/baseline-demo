@@ -60,8 +60,9 @@ spec:
       script: |
         #!/usr/bin/env bash
         set +x
+        export NO_COLOR="True"
 
         roxctl image scan \
           "--insecure-skip-tls-verify" \
-          -e "central-rhacs-operator.apps.cpeters-baseline.sandbox1516.opentlc.com:443" --image "$(params.image)" \
+          -e "$ROX_CENTRAL_ENDPOINT" --image "$(params.image)" \
           --output "$(params.output_format)"
