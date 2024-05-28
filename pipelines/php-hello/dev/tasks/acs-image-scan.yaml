@@ -62,6 +62,6 @@ spec:
         set +x
 
         roxctl image scan \
-          $( [ "$(params.insecure-skip-tls-verify)" = "true" ] && echo -n "--insecure-skip-tls-verify") \
+          "--insecure-skip-tls-verify" \
           -e "central-rhacs-operator.apps.cpeters-baseline.sandbox1516.opentlc.com:443" --image "$(params.image)" \
           --output "$(params.output_format)"
