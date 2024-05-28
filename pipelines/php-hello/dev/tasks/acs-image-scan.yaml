@@ -63,7 +63,6 @@ spec:
       script: |
         #!/usr/bin/env bash
         set +x
-        export NO_COLOR="True"
 
         roxctl image scan \
           $( [ "$(params.insecure-skip-tls-verify)" = "true" ] && echo -n "--insecure-skip-tls-verify") \
