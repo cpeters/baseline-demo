@@ -67,4 +67,4 @@ spec:
         roxctl image scan \
           $( [ "$(params.insecure-skip-tls-verify)" = "true" ] && echo -n "--insecure-skip-tls-verify") \
           -e "$ROX_CENTRAL_ENDPOINT" --image "$(params.image)" \
-          --output json
+          --output "$(params.output_format)"
