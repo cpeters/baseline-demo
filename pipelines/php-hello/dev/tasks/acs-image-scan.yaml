@@ -37,9 +37,6 @@ spec:
         endpoint.  Defaults to `"true"`.
       name: insecure-skip-tls-verify
       type: string
-  workspaces:
-    - name: acs-image-scan
-      description: Shared dir for scan results
   stepTemplate:
     env:
       - name: "HOME"

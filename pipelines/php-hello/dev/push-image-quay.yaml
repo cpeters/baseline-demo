@@ -31,9 +31,6 @@ spec:
       taskRef:
         kind: Task
         name: acs-image-scan
-      workspaces:
-        - name: acs-image-scan
-          workspace: quay-shared-workspace
     - name: skopeo-copy
       params:
         - name: srcImageURL
