@@ -35,6 +35,9 @@ spec:
         endpoint.  Defaults to `"true"`.
       name: insecure-skip-tls-verify
       type: string
+  workspaces:
+    - name: acs-image-check
+      description: Workspace container the ACS image check results
   results:
     - description: Output of `roxctl image check`
       name: check_output
