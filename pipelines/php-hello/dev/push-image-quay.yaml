@@ -15,19 +15,25 @@ spec:
       type: string
       description: Tag for pushed image
       default: latest
+    - name: ACS_SCAN_OUTPUT_FORMAT
+      description: Ouput format for ACS scan results (json, cvs, pretty)
+      type: string
+      default: json
     - name: TLSVERIFY
       type: string
       description: Enable or Disable TLS verification
-      default: 'false'
+      default: 'true'
   tasks:
-    - name: scan-image
+    - name: acs-image-scan
       params:
         - name: image
           value: $(params.SOURCE_IMAGE)
         - name: rox_central_endpoint
-          value: $(params.ROX_CENTRAL_ENDPOINT)
+          value: roxsecrets
         - name: rox_api_token
-          value: $(params.ROX_API_TOKEN)
+          value: roxsecrets
+        - name: output_format
+          value: $(params.ACS_SCAN_OUTPUT_FORMAT)
         - name: insecure-skip-tls-verify
           value: $(params.TLSVERIFY)
       taskRef:
