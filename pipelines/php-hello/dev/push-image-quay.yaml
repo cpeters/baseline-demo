@@ -38,7 +38,7 @@ spec:
           value: $(params.TLSVERIFY)
       taskRef:
         kind: Task
-        name: acs-image-check
+        name: acs-image-scan
       workspaces:
         - name: acs
           workspace: quay-shared-workspace
@@ -53,7 +53,7 @@ spec:
         - name: destTLSverify
           value: 'true'
       runAfter:
-        - scan-image
+        - acs-image-scan
       taskRef:
         kind: ClusterTask
         name: skopeo-copy
