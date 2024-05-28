@@ -10,7 +10,7 @@ spec:
     - name: SOURCE_IMAGE
       type: string
       description: Image to scan and push to Quay
-      default: 'docker://default-route-openshift-image-registry.apps.chpeters-baseline.sandbox1516.opentlc.com/php-hello-dev/php-hello:latest'
+      default: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
     - name: IMAGE_TAG
       type: string
       description: Tag for pushed image
