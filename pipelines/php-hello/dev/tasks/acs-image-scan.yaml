@@ -59,6 +59,7 @@ spec:
       image: 'registry.redhat.io/advanced-cluster-security/rhacs-roxctl-rhel8:4.0'
       name: acs-image-scan
       resources: {}
+      workingDir: /workspace
       script: |
         #!/usr/bin/env bash
         set +x
