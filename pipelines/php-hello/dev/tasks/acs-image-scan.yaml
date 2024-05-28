@@ -65,6 +65,6 @@ spec:
         export NO_COLOR="True"
 
         roxctl image scan \
-          $( [ "$(params.insecure-skip-tls-verify)" = "true" ] && echo -n "--insecure-skip-tls-verify") \
-          -e "$ROX_CENTRAL_ENDPOINT" --image "$(params.image)" \
-          --output "$(params.output_format)"
+          $( [ "${params.insecure-skip-tls-verify}" = "true" ] && echo -n "--insecure-skip-tls-verify") \
+          -e "$ROX_CENTRAL_ENDPOINT" --image "${params.image}" \
+          --output "${params.output_format}"
