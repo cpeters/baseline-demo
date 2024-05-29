@@ -17,5 +17,3 @@ patches:
       version: v1
       kind: Deployment
       name: php-hello
-    
-  
