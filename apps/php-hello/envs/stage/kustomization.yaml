@@ -4,12 +4,6 @@ kind: Kustomization
 resources:
 - ../../base
 
-#images:
-#  - name: 'image-registry.openshift-image-registry.svc:5000/php-hello-dev/php-hello:latest'
-#    newName: 'quay.io/chpeters/php-hello'
-    # newName: 'quay.io/redhattraining/php-hello-dockerfile'
-    #quay.io/repository/chpeters/php-hello:latest
-    
 patches:
   - path: replicas.yaml
     target:
