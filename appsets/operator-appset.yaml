@@ -9,7 +9,7 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/cpeters/baseline-demo.git
-      revision: HEAD
+      revision: acm
       directories:
       - path: operators/*
   template:
