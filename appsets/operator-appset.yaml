@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/cpeters/baseline-demo.git
       revision: HEAD
       directories:
-      - path: operators/advanced-cluster-management
+      - path: operators/*
   template:
     metadata:
       name: '{{index .path.segments 0}}-{{index .path.segments 1}}'
